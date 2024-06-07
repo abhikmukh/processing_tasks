@@ -189,6 +189,15 @@ class VisualiseData:
         """
         return df.plot(figsize=(20, 10), kind="box", legend=False)
 
+    @staticmethod
+    def plot_violinplot(df: pd.DataFrame) -> plt.Figure:
+        """
+        Function to plot a violin plot of a dataframe
+        :param df:
+        :return:
+        """
+        return sns.violinplot(data=df)
+
 
 if __name__ == "__main__":
 
@@ -232,6 +241,7 @@ if __name__ == "__main__":
     figure, ax = plt.subplots(figsize=(10, 10))
     plot3 = visualiser.plot_heatmap(feature_df)
     plot3.figure.savefig("images/heatmap.png")
+    plt.close()
 
     plot4 = visualiser.plot_boxplot(feature_df)
     plot4.figure.savefig("images/features_boxplot.png")
