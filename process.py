@@ -211,7 +211,7 @@ if __name__ == "__main__":
     data_cleaner = CleanData()
     print(f"Number of rows with missing or NAN values in the dataset are {raw_data_df.isnull().sum().sum()}")
     data_df = data_cleaner.interpolate_missing_values(raw_data_df)
-    data_df = data_cleaner.remove_outliers(data_df)
+    data_df = data_cleaner.apply_median_filter(data_df, 5)
 
     # Signal processing
     data_normaliser = SignalProcessing()
