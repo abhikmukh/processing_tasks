@@ -30,7 +30,7 @@ Three features with largest variance are ['variance', 'skewness', 'std']
 
 ### The correlation matrix of the features extracted from the signals are shown below:
 ![Correlation matrix](images/heatmap.png)
-We can see from this plot that standard deviation and variance are highly correlated with each other. This is expected as variance is the square of standard deviation.
+We can see from this plot that standard deviation and variance are highly correlated with each other. This is expected as variance is the square of standard deviation. We can drop these two features for future statistical analysis.
 
 ## DNA sequence analysis
 3 sets of DNA sequences of different error rates were generated and analysed
