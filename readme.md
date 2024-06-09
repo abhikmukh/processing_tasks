@@ -32,6 +32,9 @@ Three features with largest variance are ['variance', 'skewness', 'std']
 ![Correlation matrix](images/heatmap.png)
 We can see from this plot that standard deviation and variance are highly correlated with each other. This is expected as variance is the square of standard deviation. We can drop these two features for future statistical analysis.
 
+## Future work
+- More feature extraction methods can be used to extract more features from the signals
+- Explore median filter and other smoothing techniques to remove outliers
 ## DNA sequence analysis
 3 sets of DNA sequences of different error rates were generated and analysed
 
@@ -44,3 +47,5 @@ We can see from this plot that standard deviation and variance are highly correl
 ### The gc content distribution per error rate plot.
 ![GC content distribution](images/gc_content_distribution.png)
 
+## Future work
+- Improve the data structure for storing the error positions and error types

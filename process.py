@@ -322,13 +322,16 @@ if __name__ == "__main__":
 
     # Anomaly detection and Remove outliers
     anomaly_detector = AnomalyDetection(data_df)
-    # anomaly_df = anomaly_detector.detect_anomalies()  # Detect anomalies in the signal data
+    anomaly_df = anomaly_detector.detect_anomalies()  # Detect anomalies in the signal data
     data_df = data_cleaner.apply_median_filter(data_df, 5)  # Apply median filter to remove outliers
 
     # Signal processing
     data_normaliser = SignalProcessing()
     data_df = data_normaliser.low_pass_filter(data_df)
     data_df = data_normaliser.normalised_signal(data_df)
+
+    # Write the cleaned data to a csv file
+    data_df.T.to_csv("processed_data/cleaned_signal_data.csv", index=False)
 
     # Feature generation
     feature_generator = FeatureGenerator(data_df)
