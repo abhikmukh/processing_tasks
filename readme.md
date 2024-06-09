@@ -36,7 +36,7 @@ We can see from this plot that standard deviation and variance are highly correl
 - More feature extraction methods can be used to extract more features from the signals
 - Explore median filter and other smoothing techniques to remove outliers
 ## DNA sequence analysis
-3 sets of DNA sequences of different error rates were generated and analysed
+In this task we will create first create template DNA sequence of 100 base pairs and 60% GC content. We will then generate 100 complimentary DNA sequence and introduce errors in the sequences at different error rates. The error types are substitution, insertion and deletion. The error positions are randomly generated. The error rates are 1%, 5% and 10%. The DNA sequences are then analysed to determine the error position distribution, sequence length distribution and GC content distribution. 
 
 ### The error position distribution per error type for 10% error rate.
 ![Error distribution](images/error_distribution.png)
