@@ -10,7 +10,10 @@ import scipy.stats as stats
 import scipy.signal as signal
 from scipy.stats import skew, kurtosis
 from scipy.fft import fft
-import  scipy.ndimage as ndimage
+import scipy.ndimage as ndimage
+from sklearn.ensemble import IsolationForest
+from sklearn.preprocessing import StandardScaler
+
 
 
 def create_data_frame(file_path: str) -> pd.DataFrame:
@@ -199,6 +202,29 @@ class VisualiseData:
         return sns.violinplot(data=df)
 
 
+class AnomalyDetection:
+    """
+    Class to detect anomalies in the signal data
+    """
+    def __init__(self, df):
+        self.df = df
+
+    @staticmethod
+    def isolation_forest(signal_data) -> pd.Series:
+        """
+        Function to detect anomalies using Isolation Forest
+        :param signal_data:
+        :return:
+        """
+        model = IsolationForest(contamination=0.1)
+        model.fit(signal_data)
+        return model.predict(signal_data)
+
+    def detect_anomalies(self) -> pd.Series:
+        df_anomaly = self.df.apply(lambda x: AnomalyDetection.isolation_forest(x.values.reshape(-1, 1)))
+        return df_anomaly
+
+
 if __name__ == "__main__":
 
     # Read raw data
@@ -211,7 +237,11 @@ if __name__ == "__main__":
     data_cleaner = CleanData()
     print(f"Number of rows with missing or NAN values in the dataset are {raw_data_df.isnull().sum().sum()}")
     data_df = data_cleaner.interpolate_missing_values(raw_data_df)
-    data_df = data_cleaner.apply_median_filter(data_df, 5)
+
+    # Anomaly detection and Remove outliers
+    anomaly_detector = AnomalyDetection(data_df)
+    anomaly_df = anomaly_detector.detect_anomalies()  # Detect anomalies in the signal data
+    data_df = data_cleaner.apply_median_filter(data_df, 5)  # Apply median filter to remove outliers
 
     # Signal processing
     data_normaliser = SignalProcessing()

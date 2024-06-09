@@ -7,7 +7,8 @@
 The following operations were performed on the datasets:
 - Cleaning of signals
 - Imputing missing values
-- Smoothing of signals to remove outliers
+- anomaly detection using Isolation Forest
+- Smoothing of signals using median filters to remove outliers
 - Normalization of signals
 - Feature extraction from the signals
 - Visualization of the signals before and after processing
