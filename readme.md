@@ -1,7 +1,9 @@
 
 # This repository contains the code for the projects `Signal processing` and `DNA sequence analysis`
-
-
+This repo needs Python 3.10, pandas, numpy, scipy, matplotlib, seaborn, scikit-learn and biopython to run.
+To run this repository create a conda environment with this command conda env create --name envname --file=environments.yml
+Activate the environment with conda activate envname
+Then run the code with python process.py
 ## Signal processing
 7 signal datasets are provided in the folder `signal_datasets` were processed using Pythons Pandas, Numpy and Scipy libraries. 
 The following operations were performed on the datasets:
@@ -29,3 +31,16 @@ Three features with largest variance are ['variance', 'skewness', 'std']
 ### The correlation matrix of the features extracted from the signals are shown below:
 ![Correlation matrix](images/heatmap.png)
 We can see from this plot that standard deviation and variance are highly correlated with each other. This is expected as variance is the square of standard deviation.
+
+## DNA sequence analysis
+3 sets of DNA sequences of different error rates were generated and analysed
+
+### The error position distribution per error type for 10% error rate.
+![Error distribution](images/error_distribution.png)
+
+### The sequence length distribution per error rate plot.
+![Sequence length distribution](images/sequence_length_distribution.png)
+
+### The gc content distribution per error rate plot.
+![GC content distribution](images/gc_content_distribution.png)
+
