@@ -1,5 +1,6 @@
-import os
 import glob
+import os
+import random
 
 import pandas as pd
 import numpy as np
@@ -13,7 +14,6 @@ import scipy.ndimage as ndimage
 from sklearn.ensemble import IsolationForest
 from Bio.Seq import MutableSeq
 from Bio.SeqUtils import gc_fraction as gc
-import random
 
 
 ############################################################################################################
